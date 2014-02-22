@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends UACoursesActivity {
 
@@ -16,30 +21,33 @@ public class LoginActivity extends UACoursesActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        addSaveButton();
+        addLoginButton();
     }
 
 
    
     
-    private void addSaveButton() {
+    private void addLoginButton() {
+    	
     	
     	Button saveBtn = (Button)findViewById(R.id.login);
     	saveBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
-				alert.setMessage("Coding still in progress!!");
-				alert.setCancelable(true);
-				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				});
-				alert.create().show();
+				
+				EditText username = (EditText)findViewById(R.id.username);
+		    	EditText password = (EditText)findViewById(R.id.password);
+				if(username.getText().toString().equals("UAlbany") && password.getText().toString().equals("UAlbany456"))
+		    	{
+		    		Intent intent = new Intent(getApplicationContext(),DetailsActivity.class);
+		    		startActivity(intent);
+		    	} else {
+		    		Toast toast = Toast.makeText(getApplicationContext(), "Invalid username/ password!!!",
+		    						Toast.LENGTH_SHORT);
+		    		toast.setGravity(Gravity.CENTER, 0, 0);
+		    		toast.show();
+		    	}
 			}
 		});
     	

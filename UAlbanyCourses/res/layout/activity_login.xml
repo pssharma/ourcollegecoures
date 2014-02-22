@@ -6,28 +6,31 @@
     android:orientation="vertical" >
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_margin="10dp"
+        android:background="#675876"
         android:ems="10"
         android:hint="User Name..."
         android:singleLine="true"
-        android:textColorHint="#F7FE2E" >
-
-        <requestFocus />
-    </EditText>
+        android:textColorHint="#F7FE2E" 
+        android:padding="10dp"
+        android:textColor="#F7FE2E"/>
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="100px"
         android:layout_margin="10dp"
+        android:background="#675876"
         android:ems="10"
         android:hint="Password..."
-        android:textColorHint="#F7FE2E"
         android:inputType="textPassword"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:textColorHint="#F7FE2E" 
+        android:padding="10dp"
+        android:textColor="#F7FE2E"/>
 
     <Button
         android:id="@+id/login"
@@ -35,7 +38,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Login" 
-        android:textColor="#F7FE2E"/>
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Login"
+        android:textColor="#F7FE2E" />
 
 </LinearLayout>
