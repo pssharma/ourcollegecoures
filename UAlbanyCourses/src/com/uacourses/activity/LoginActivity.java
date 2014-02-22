@@ -1,6 +1,6 @@
 package com.uacourses.activity;
 
-import com.example.homeandroid.R;
+import com.uacourses.activity.R;
 
 import android.os.Bundle;
 import android.app.Activity;
