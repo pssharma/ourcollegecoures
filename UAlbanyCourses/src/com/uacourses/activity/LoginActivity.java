@@ -73,7 +73,7 @@ public class LoginActivity extends UACoursesActivity {
     
     public void gotoDetails()
     {
-    	Intent intent = new Intent(getApplicationContext(),DetailsActivity.class);
+    	Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
 		startActivity(intent);
     }
     

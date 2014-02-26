@@ -74,7 +74,7 @@ public class DetailsActivity extends UACoursesActivity {
 			timings.setText("4.35p - 5.35p");
 			location.setText("LC 6");
 			description.setText("Painting: This course helps students in studying the in " +
-								"and out of Music");
+								"and out of painting");
 		}
 		
 		
