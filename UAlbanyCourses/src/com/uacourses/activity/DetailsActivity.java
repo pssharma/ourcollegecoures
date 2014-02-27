@@ -19,6 +19,11 @@ public class DetailsActivity extends UACoursesActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_details);
+		
+		String courseNameFrmIntent = getIntent().getExtras().getString("courseName");
+		if(courseNameFrmIntent == null)
+			courseNameFrmIntent = "";
+		
 		EditText courseNo = (EditText)findViewById(R.id.courseNo);
 		EditText courseName = (EditText)findViewById(R.id.courseName);
 		EditText semester = (EditText)findViewById(R.id.semester);
@@ -31,7 +36,7 @@ public class DetailsActivity extends UACoursesActivity {
 		EditText location = (EditText)findViewById(R.id.location);
 		EditText description = (EditText)findViewById(R.id.description);
 		
-		if(courseName.getText().toString().equals("SE")) {		//THIS IS A MAJOR COURSE
+		if(courseNameFrmIntent.equalsIgnoreCase("Software engineering")) {		//THIS IS A MAJOR COURSE
 		courseNo.setText("12345");
 		courseName.setText("SE");
 		semester.setText("Spring");
@@ -42,7 +47,7 @@ public class DetailsActivity extends UACoursesActivity {
 		location.setText("LC 3B");
 		description.setText("Software Engineering: This course helps students in studying the in " +
 							"and out of software development");
-		} else if (courseName.getText().toString().equals("Databases")) {		//THIS IS A MAJOR COURSE
+		} else if (courseNameFrmIntent.equalsIgnoreCase("Databases")) {		//THIS IS A MAJOR COURSE
 			courseNo.setText("34567");
 			courseName.setText("Databases");
 			semester.setText("Spring");
@@ -53,7 +58,7 @@ public class DetailsActivity extends UACoursesActivity {
 			location.setText("LC 21");
 			description.setText("Databases: This course helps students in studying the in " +
 								"and out of DBMS");
-		} else if (courseName.getText().toString().equals("Music")) {			//THIS IS A MINOR COURSE
+		} else if (courseNameFrmIntent.equalsIgnoreCase("Music")) {			//THIS IS A MINOR COURSE
 			courseNo.setText("77456");
 			courseName.setText("Music");
 			semester.setText("Spring");
@@ -64,7 +69,7 @@ public class DetailsActivity extends UACoursesActivity {
 			location.setText("LC 5");
 			description.setText("Music: This course helps students in studying the in " +
 								"and out of Music");
-		} else if (courseName.getText().toString().equals("Painting")) {		//THIS IS A MINOR COURSE
+		} else if (courseNameFrmIntent.equalsIgnoreCase("Painting")) {		//THIS IS A MINOR COURSE
 			courseNo.setText("77457");
 			courseName.setText("Painting");
 			semester.setText("Spring");

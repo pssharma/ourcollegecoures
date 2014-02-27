@@ -33,6 +33,8 @@ public class ListActivity extends UACoursesActivity {
 		String minor = getIntent().getExtras().getString("minor");
 		String[] courses;
 		LinearLayout layout = (LinearLayout)findViewById(R.id.textViewAsList);
+		layout.setOrientation(LinearLayout.VERTICAL);
+		
 		if(major.equalsIgnoreCase("Computer Science") && year.equalsIgnoreCase("")
 				&& semester.equalsIgnoreCase("") && minor.equalsIgnoreCase("")) {
 			courses = new String[] {"Software engineering","Databases"};
@@ -67,17 +69,31 @@ public class ListActivity extends UACoursesActivity {
 		}
 		
 		
-		TextView[] texts = new TextView[courses.length];
-		TextView textView; 
-
+		final EditText[] texts = new EditText[courses.length];
+		EditText textView; 
 		for (int i = 0; i < texts.length; i++) 
 		{
-			textView = new TextView(this);
+			
+			textView = new EditText(this);
 			textView.setText(courses[i]);
 			texts[i] = textView;
 			texts[i].setBackgroundColor(Color.parseColor("#67587666"));
 			texts[i].setTextColor(Color.parseColor("#F7FE2E"));
 			texts[i].setClickable(true);
+			texts[i].setId(i);
+			texts[i].setPadding(10, 10, 10, 10);
+			texts[i].setFocusable(false);
+			final String courseName = courses[i];	
+			
+			texts[i].setOnClickListener(new View.OnClickListener() {
+			
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(v.getContext(), DetailsActivity.class);
+					intent.putExtra("courseName", courseName);
+					startActivity(intent);
+				}
+			});
 			layout.addView(texts[i]);
 		}
 		
