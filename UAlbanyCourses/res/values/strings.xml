@@ -8,5 +8,6 @@
     <string name="title_activity_details">UAlbany Courses</string>
     <string name="rate_my_professor"><u>Rate My Professor</u></string>
     <string name="title_activity_search">UAlbany Courses</string>
+    <string name="title_activity_list">UAlbany Courses</string>
 
 </resources>
