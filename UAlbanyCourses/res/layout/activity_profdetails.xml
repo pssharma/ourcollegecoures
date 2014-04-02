@@ -13,13 +13,13 @@
     tools:context=".ProfessordetailActivity" >
 
 
-<WebView
+<!-- WebView
     android:id="@+id/webView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignLeft="@+id/webview"
     android:layout_alignTop="@+id/webview" 
-    />
+    /-->
 
 </RelativeLayout>
     

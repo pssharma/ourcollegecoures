@@ -29,19 +29,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#F7FE2E" />
 
-    <TextView
-        android:id="@+id/rateMyProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/description"
-        android:layout_below="@+id/description"
-        android:layout_marginTop="83dp"
-        android:layout_toLeftOf="@+id/courseNo"
-        android:text="@string/rate_my_professor"
-        android:textAppearance="?android:attr/textAppearanceSmall" 
-        android:linksClickable="true"
-        android:textColor="#F7FE2E"/>
-
     <EditText
         android:id="@+id/description"
         android:layout_width="match_parent"
@@ -178,18 +165,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#F7FE2E" />
 
-    <Button
-        android:id="@+id/logout"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/rateMyProf"
-        android:layout_alignRight="@+id/textView6"
-        android:layout_below="@+id/rateMyProf"
-        android:layout_marginTop="18dp"
-        android:text="Logout"
-        android:textColor="#F7FE2E" />
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -199,5 +174,60 @@
         android:text="Course Description :"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#F7FE2E" />
+
+    <EditText
+        android:id="@+id/blogSpot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/save"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignRight="@+id/description"
+        android:layout_below="@+id/textView8"
+        android:background="#67587666"
+        android:ems="10"
+        android:textColor="#F7FE2E" />
+
+    <TextView
+        android:id="@+id/rateMyProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logout"
+        android:layout_alignLeft="@+id/editText1"
+        android:linksClickable="true"
+        android:text="@string/rate_my_professor"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#F7FE2E" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_below="@+id/description"
+        android:layout_marginTop="16dp"
+        android:text="Blog Spot:"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#F7FE2E" />
+
+    <Button
+        android:id="@+id/logout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/blogSpot"
+        android:text="Logout"
+        android:textColor="#F7FE2E" />
+
+    <Button
+        android:id="@+id/save"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/logout"
+        android:layout_alignRight="@+id/textView3"
+        android:text="Save"
+        android:textColor="#F7FE2E" 
+        android:onClick="saveBlog"/>
 
 </RelativeLayout>

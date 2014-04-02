@@ -1,17 +1,18 @@
 package com.uacourses.activity;
 
-import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import com.uacourses.internet.ServletTask;
 
 public class DetailsActivity extends UACoursesActivity {
 
@@ -112,6 +113,16 @@ public class DetailsActivity extends UACoursesActivity {
 			}
 		});
     	
+    }
+    
+    private final String URL = "http://192.168.1.111:8080/UAlbany_Courses/PostBlogServlet";
+    
+    public void saveBlog(View v)
+    {
+    	String blogSpot = ((EditText)findViewById(R.id.blogSpot)).getText().toString();
+    	ServletTask task = new ServletTask();
+    	task.setBlogSpot(blogSpot);
+		task.execute(new String[] {URL});
     }
 
 }
