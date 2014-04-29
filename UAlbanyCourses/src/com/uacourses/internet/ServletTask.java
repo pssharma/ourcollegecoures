@@ -32,7 +32,18 @@ public class ServletTask extends AsyncTask<String, Void, String>{
 	private String professorName;
 	private float professorRating;
 	private String username;
+	private String courseName;
 	
+	public String getCourseName() {
+		return courseName;
+	}
+
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+
 	public String getUsername() {
 		return username;
 	}
@@ -109,6 +120,7 @@ public class ServletTask extends AsyncTask<String, Void, String>{
             parameterValues.add(new BasicNameValuePair("review", getReview()));
             parameterValues.add(new BasicNameValuePair("professorName", getProfessorName()));
             parameterValues.add(new BasicNameValuePair("professorRating", String.valueOf(getProfessorRating())));
+            parameterValues.add(new BasicNameValuePair("courseName", getCourseName()));
             
             httpPost.setEntity(new UrlEncodedFormEntity(parameterValues,HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);

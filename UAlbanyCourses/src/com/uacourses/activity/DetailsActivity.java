@@ -8,11 +8,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.uacourses.internet.ServletTask;
 
@@ -140,6 +142,12 @@ public class DetailsActivity extends UACoursesActivity {
     	ServletTask task = new ServletTask();
     	task.setBlogSpot(blogSpot);
     	task.setUsername(username);
+    	
+    	Toast toast = Toast.makeText(v.getContext(), "Save Successful",
+				Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.show();
+		
 		task.execute(new String[] {URL});
     }
     

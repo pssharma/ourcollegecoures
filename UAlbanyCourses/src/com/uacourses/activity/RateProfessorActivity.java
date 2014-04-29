@@ -9,10 +9,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 public class RateProfessorActivity extends UACoursesActivity {
 
@@ -45,10 +47,19 @@ public class RateProfessorActivity extends UACoursesActivity {
 		EditText edTxtName = (EditText)findViewById(R.id.professorName);
 		String professorName = edTxtName.getText().toString();
 		
+		EditText edTxtCourseName = (EditText)findViewById(R.id.courseName);
+		String courseName = edTxtCourseName.getText().toString();
+		
 		ServletTask task = new ServletTask();
     	task.setReview(review);
     	task.setProfessorName(professorName);
     	task.setProfessorRating(professorRating);
+    	task.setCourseName(courseName);
+    	
+    	Toast toast = Toast.makeText(v.getContext(), "Save Successful",
+				Toast.LENGTH_SHORT);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.show();
     	
 		task.execute(new String[] {URL});
 	}
