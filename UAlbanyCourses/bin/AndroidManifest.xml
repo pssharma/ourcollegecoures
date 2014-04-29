@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="14" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -36,13 +36,25 @@
         </activity>
         <activity
             android:name="com.uacourses.activity.SearchActivity"
-            android:label="@string/title_activity_search" 
+            android:label="@string/title_activity_search"
             android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.uacourses.activity.ListActivity"
-            android:label="@string/title_activity_list" 
+            android:label="@string/title_activity_list"
             android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.uacourses.activity.BlogsActivity"
+            android:label="@string/title_activity_blogs" >
+        </activity>
+        <activity
+            android:name="com.uacourses.activity.RateProfessorActivity"
+            android:label="@string/title_activity_rate_professor" >
+        </activity>
+        <activity
+            android:name="com.uacourses.activity.ViewProfReviewsActivity"
+            android:label="@string/title_activity_view_prof_reviews" >
         </activity>
     </application>
 

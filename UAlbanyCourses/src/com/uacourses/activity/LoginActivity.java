@@ -1,6 +1,8 @@
 package com.uacourses.activity;
 
 import com.uacourses.activity.R;
+import com.uacourses.beans.LoginInfo;
+import com.uacourses.database.Select;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -45,8 +47,8 @@ public class LoginActivity extends UACoursesActivity {
     private void addLoginButton() {
     	
     	
-    	Button saveBtn = (Button)findViewById(R.id.login);
-    	saveBtn.setOnClickListener(new View.OnClickListener() {
+    	Button loginBtn = (Button)findViewById(R.id.login);
+    	loginBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -55,12 +57,25 @@ public class LoginActivity extends UACoursesActivity {
 		    	EditText password = (EditText)findViewById(R.id.password);
 		    	LoginActivity.this.username = username.getText().toString();
 		    	LoginActivity.this.password = password.getText().toString();
+		    	
+		    	LoginInfo loginInfo = null;
+		    	
+		    	//LoginInfo loginInfo = Select.getLoginInfo(LoginActivity.this.username, LoginActivity.this.password);
+		    	
+		    	
 		    	if(LoginActivity.this.username.equals("UAlbany") && LoginActivity.this.password.equals("UAlbany456"))
 		    	{
 		    		saveDataInPrefs(LoginActivity.this.username, LoginActivity.this.password);
 					gotoDetails();
 		    		
-		    	} else {
+		    	} 
+		    	else if(loginInfo != null)
+		    	{
+		    		saveDataInPrefs(loginInfo.getUsername(), loginInfo.getEmail());
+					gotoDetails();
+		    		
+		    	}
+		    	else {
 		    		Toast toast = Toast.makeText(getApplicationContext(), "Invalid username/ password!!!",
 		    						Toast.LENGTH_SHORT);
 		    		toast.setGravity(Gravity.CENTER, 0, 0);
@@ -77,11 +92,11 @@ public class LoginActivity extends UACoursesActivity {
 		startActivity(intent);
     }
     
-    public void saveDataInPrefs(String username, String password)
+    public void saveDataInPrefs(String username, String email)
     {
     	Editor editor = sprefs.edit();
     	editor.putString("username", username);
-    	editor.putString("password", password);
+    	editor.putString("email", email);
     	editor.commit();
     	
     }

@@ -37,20 +37,12 @@ public class SearchActivity extends UACoursesActivity {
 	
 	public void logout(View v)
     {
-    	Button logout = (Button)findViewById(R.id.logout);
-		logout.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				SharedPreferences sprefs = getSharedPreferences(LoginActivity.FILE, Context.MODE_PRIVATE);
-		    	Editor editor = sprefs.edit();
-		    	editor.clear();
-		    	editor.commit();
-		    	Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
-		    	startActivity(intent);
-				
-			}
-		});
+		SharedPreferences sprefs = getSharedPreferences(LoginActivity.FILE, Context.MODE_PRIVATE);
+    	Editor editor = sprefs.edit();
+    	editor.clear();
+    	editor.commit();
+    	Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+    	startActivity(intent);
     	
     }
 	

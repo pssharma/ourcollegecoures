@@ -185,17 +185,7 @@
         android:layout_below="@+id/textView8"
         android:background="#67587666"
         android:ems="10"
-        android:textColor="#F7FE2E" />
-
-    <TextView
-        android:id="@+id/rateMyProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/logout"
-        android:layout_alignLeft="@+id/editText1"
-        android:linksClickable="true"
-        android:text="@string/rate_my_professor"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:padding="2dp"
         android:textColor="#F7FE2E" />
 
     <TextView
@@ -210,7 +200,7 @@
         android:textColor="#F7FE2E" />
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/logoutDetailsPage"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -224,10 +214,35 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/logout"
-        android:layout_alignRight="@+id/textView3"
+        android:layout_alignBaseline="@+id/viewBlogs"
+        android:layout_alignBottom="@+id/viewBlogs"
+        android:layout_alignLeft="@+id/description"
+        android:onClick="saveBlog"
         android:text="Save"
-        android:textColor="#F7FE2E" 
-        android:onClick="saveBlog"/>
+        android:textColor="#F7FE2E" />
+
+    <Button
+        android:id="@+id/viewBlogs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logoutDetailsPage"
+        android:layout_marginBottom="26dp"
+        android:layout_toRightOf="@+id/textView8"
+        android:autoLink="web"
+        android:onClick="viewBlogs"
+        android:text="View Blogs"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#F7FE2E" />
+
+    <TextView
+        android:id="@+id/rateMyProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/logoutDetailsPage"
+        android:layout_alignLeft="@+id/save"
+        android:linksClickable="true"
+        android:text="@string/rate_my_professor"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#F7FE2E" />
 
 </RelativeLayout>

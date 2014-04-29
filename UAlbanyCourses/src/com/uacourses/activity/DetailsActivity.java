@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.UnderlineSpan;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.uacourses.internet.ServletTask;
 
@@ -84,6 +86,18 @@ public class DetailsActivity extends UACoursesActivity {
 		}
 		
 		
+		
+		TextView rateMyProfTxtAsLink = (TextView)findViewById(R.id.rateMyProf);
+		rateMyProfTxtAsLink.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), RateProfessorActivity.class);
+				startActivity(intent);
+			}
+		});
+		
+		
 		logout();
 		
 	}
@@ -98,7 +112,7 @@ public class DetailsActivity extends UACoursesActivity {
 
     public void logout()
     {
-    	Button logout = (Button)findViewById(R.id.logout);
+    	Button logout = (Button)findViewById(R.id.logoutDetailsPage);
 		logout.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -115,14 +129,29 @@ public class DetailsActivity extends UACoursesActivity {
     	
     }
     
-    private final String URL = "http://192.168.1.111:8080/UAlbany_Courses/PostBlogServlet";
+    private final String URL = "http://192.168.1.103:8080/UAlbany_Courses/PostBlogServlet";
     
     public void saveBlog(View v)
     {
     	String blogSpot = ((EditText)findViewById(R.id.blogSpot)).getText().toString();
+    	SharedPreferences sprefs = getSharedPreferences(LoginActivity.FILE, Context.MODE_PRIVATE);
+    	String username = sprefs.getString("username", "");
+    	
     	ServletTask task = new ServletTask();
     	task.setBlogSpot(blogSpot);
+    	task.setUsername(username);
 		task.execute(new String[] {URL});
     }
+    
+    public void viewBlogs(View v) 
+    {
+    	/*Uri uriUrl = Uri.parse("http://192.168.1.103:8080/UAlbany_Courses/blogs.jsp");
+    	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+    	startActivity(launchBrowser);*/
+    	Intent intent = new Intent(v.getContext(), BlogsActivity.class);
+		startActivity(intent);
+    }
+    
+    
 
 }

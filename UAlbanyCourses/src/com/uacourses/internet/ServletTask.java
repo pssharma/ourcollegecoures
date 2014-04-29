@@ -28,7 +28,51 @@ import android.os.AsyncTask;
 public class ServletTask extends AsyncTask<String, Void, String>{
 	
 	private String blogSpot;
+	private String review;
+	private String professorName;
+	private float professorRating;
+	private String username;
 	
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public String getReview() {
+		return review;
+	}
+
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+
+	public String getProfessorName() {
+		return professorName;
+	}
+
+
+	public void setProfessorName(String professorName) {
+		this.professorName = professorName;
+	}
+
+
+	public float getProfessorRating() {
+		return professorRating;
+	}
+
+
+	public void setProfessorRating(float professorRating) {
+		this.professorRating = professorRating;
+	}
+
+
 	public String getBlogSpot() {
 		return blogSpot;
 	}
@@ -42,11 +86,11 @@ public class ServletTask extends AsyncTask<String, Void, String>{
 	@Override
 	protected String doInBackground(String... urls) {
 
-		String postBlogInBg = null;
+		String postInBg = null;
         for (String url : urls) {
-        	postBlogInBg = getStatusFromURL(url);
+        	postInBg = getStatusFromURL(url);
         }
-        return postBlogInBg;
+        return postInBg;
         
 	}
 	
@@ -60,6 +104,11 @@ public class ServletTask extends AsyncTask<String, Void, String>{
             
             HttpPost httpPost = new HttpPost(url);
             parameterValues.add(new BasicNameValuePair("blogspot", getBlogSpot()));
+            parameterValues.add(new BasicNameValuePair("username", getUsername()));
+            
+            parameterValues.add(new BasicNameValuePair("review", getReview()));
+            parameterValues.add(new BasicNameValuePair("professorName", getProfessorName()));
+            parameterValues.add(new BasicNameValuePair("professorRating", String.valueOf(getProfessorRating())));
             
             httpPost.setEntity(new UrlEncodedFormEntity(parameterValues,HTTP.UTF_8));
             HttpResponse httpResponse = httpClient.execute(httpPost);
