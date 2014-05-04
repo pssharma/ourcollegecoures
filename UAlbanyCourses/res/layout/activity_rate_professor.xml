@@ -130,6 +130,7 @@
         android:layout_toRightOf="@+id/textView2"
         android:ems="10" 
         android:textColor="#F7FE2E"
-        android:background="#675876"/>
+        android:background="#675876"
+        android:padding="10dp"/>
 
 </RelativeLayout>

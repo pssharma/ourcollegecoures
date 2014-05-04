@@ -18,7 +18,7 @@ public class Select {
 		LoginInfo loginInfo = null;
 		try {
 		      Class.forName("org.sqlite.JDBC");
-		      c = DriverManager.getConnection("jdbc:sqlite:test.db");
+		      c = DriverManager.getConnection("jdbc:sqlite:ualbany.db");
 		      String sqlQuery = "SELECT * FROM LOGININFO WHERE USERNAME = ? AND PASSWORD = ?";
 		      stmt = c.prepareStatement(sqlQuery);
 		      stmt.setString(1, username);

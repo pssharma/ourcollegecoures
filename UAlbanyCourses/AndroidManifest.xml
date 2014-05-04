@@ -46,15 +46,18 @@
         </activity>
         <activity
             android:name="com.uacourses.activity.BlogsActivity"
-            android:label="@string/title_activity_blogs" >
+            android:label="@string/title_activity_blogs" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.uacourses.activity.RateProfessorActivity"
-            android:label="@string/title_activity_rate_professor" >
+            android:label="@string/title_activity_rate_professor" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="com.uacourses.activity.ViewProfReviewsActivity"
-            android:label="@string/title_activity_view_prof_reviews" >
+            android:label="@string/title_activity_view_prof_reviews" 
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

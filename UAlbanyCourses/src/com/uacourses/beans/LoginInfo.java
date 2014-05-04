@@ -9,9 +9,18 @@ package com.uacourses.beans;
  */
 public class LoginInfo {
 	
+	private int userid;
 	private String username;
 	private String password;
 	private String email;
+	
+	
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 	public String getUsername() {
 		return username;
 	}

@@ -2,6 +2,7 @@ package com.uacourses.activity;
 
 import com.uacourses.activity.R;
 import com.uacourses.beans.LoginInfo;
+import com.uacourses.database.SQLiteJDBC;
 import com.uacourses.database.Select;
 
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -32,13 +34,15 @@ public class LoginActivity extends UACoursesActivity {
     protected void onCreate(Bundle savedInstanceState) {
     	Log.d("notify", "on create");
         super.onCreate(savedInstanceState);
+        
         setContentView(R.layout.activity_login);
         sprefs = getSharedPreferences(FILE, Context.MODE_PRIVATE);
-    	if(sprefs.contains("username")
-    			&& sprefs.contains("password"))
+    	if(sprefs.contains("username"))
 		{
     		gotoDetails();
 		} else {
+			
+			
 			addLoginButton();
 		}
     }
@@ -60,8 +64,13 @@ public class LoginActivity extends UACoursesActivity {
 		    	
 		    	LoginInfo loginInfo = null;
 		    	
-		    	//LoginInfo loginInfo = Select.getLoginInfo(LoginActivity.this.username, LoginActivity.this.password);
+		    	//loginInfo = Select.getLoginInfo(LoginActivity.this.username, LoginActivity.this.password);
 		    	
+		    	if(!(LoginActivity.this.username.equals("") || LoginActivity.this.password.equals("")))
+		    	{
+		    		SQLiteJDBC db = new SQLiteJDBC(v.getContext());
+		    		loginInfo = db.getLoginInfo(LoginActivity.this.username, LoginActivity.this.password);
+		    	}
 		    	
 		    	if(LoginActivity.this.username.equals("UAlbany") && LoginActivity.this.password.equals("UAlbany456"))
 		    	{
